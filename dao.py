@@ -11,7 +11,8 @@ from model import Base, fundamentals, Equity
 
 @contextmanager
 def db_session():
-    engine = create_engine('sqlite:///resource/fundamentals.sqlite')
+    #engine = create_engine('sqlite:///resource/fundamentals.sqlite')
+    engine = create_engine('mysql://root@localhost/fundamentals')
     db_session = sessionmaker()
     db_session.configure(bind=engine)
     Base.metadata.create_all(engine)
@@ -60,6 +61,8 @@ def insert_equities():
     with open('resource/tickers.txt', 'rb') as csvfile:
         reader = csv.DictReader(csvfile, delimiter='\t')
         with db_session() as s:
+            s.query(TickerChangeDate).delete()
+            s.query(RelatedTicker).delete()
             s.query(Equity).delete()
             for row in reader:
                 e = Equity()
