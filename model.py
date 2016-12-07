@@ -8,21 +8,21 @@ Base = declarative_base()
 class Equity(Base):
     __tablename__ = 'equity'
     id = Column(Integer, primary_key=True)
-    ticker = Column(String, index=True)
-    name = Column(String)
-    cusip = Column(String)
-    fama_industry = Column(String)
-    currency = Column(String)
-    sector = Column(String)
-    industry = Column(String)
+    ticker = Column(String(255), index=True)
+    name = Column(String(255))
+    cusip = Column(String(255))
+    fama_industry = Column(String(255))
+    currency = Column(String(255))
+    sector = Column(String(255))
+    industry = Column(String(255))
     last_updated = Column(Date)
-    prior_tickers = Column(String)
+    prior_tickers = Column(String(255))
     ticker_change_date = relationship("TickerChangeDate", backref='equity')
     related_tickers = relationship("RelatedTicker", backref='equity')
-    exchange = Column(String)
-    sic = Column(String)
-    location = Column(String)
-    delisted_from = Column(String)
+    exchange = Column(String(255))
+    sic = Column(String(255))
+    location = Column(String(255))
+    delisted_from = Column(String(255))
     is_foreign = Column(Boolean)
 
     def country(self):
@@ -34,7 +34,7 @@ class RelatedTicker(Base):
     __tablename__ = 'related_ticker'
     related_ticker_id = Column(Integer, primary_key=True)
     equity_id = Column(Integer, ForeignKey('equity.id'))
-    ticker = Column(String, index=True)
+    ticker = Column(String(255), index=True)
 
 class TickerChangeDate(Base):
     __tablename__ = '_ticker_change_date'
@@ -46,7 +46,7 @@ class Fundamentals(Base):
     __tablename__ = 'fundamentals'
     __table_args__ = (UniqueConstraint('symbol', 'date'),)
     id = Column(Integer, primary_key=True)
-    symbol = Column(String)
+    symbol = Column(String(255))
     date = Column(Date)
     price = Column(Numeric(16, 5))
     balance_sheet = relationship("BalanceSheet", backref="fundamentals", uselist=False)
@@ -73,13 +73,13 @@ class AssetClassification(Base):
     growth_grade = Column(Numeric(16, 5))
     growth_score = Column(Numeric(16, 5))
     morningstar_economy_sphere_code = Column(Numeric(16, 5))
-    morningstar_industry_code = Column(String)
-    morningstar_industry_group_code = Column(String)
-    morningstar_sector_code = Column(String)
+    morningstar_industry_code = Column(String(255))
+    morningstar_industry_group_code = Column(String(255))
+    morningstar_sector_code = Column(String(255))
     nace = Column(Numeric(16, 5))
     naics = Column(Numeric(16, 5))
     profitability_grade = Column(Numeric(16, 5))
-    sic = Column(String)
+    sic = Column(String(255))
     size_score = Column(Numeric(16, 5))
     stock_type = Column(Numeric(16, 5))
     style_box = Column(Numeric(16, 5))
@@ -872,19 +872,19 @@ class CashFlowStatement(Base):
 class CompanyReference(Base):
     __tablename__ = 'company_reference'
     company_reference_id = Column(Integer, ForeignKey(Fundamentals.id), primary_key=True)
-    business_country_id = Column(String)
-    cik = Column(String)
-    company_status = Column(String)
-    country_id = Column(String)
-    fiscal_year_end = Column(String)
-    industry_template_code = Column(String)
-    legal_name = Column(String)
-    legal_name_language_code = Column(String)
-    primary_exchange_id = Column(String)
-    primary_share_class_id = Column(String)
-    primary_symbol = Column(String)
-    short_name = Column(String)
-    standard_name = Column(String)
+    business_country_id = Column(String(255))
+    cik = Column(String(255))
+    company_status = Column(String(255))
+    country_id = Column(String(255))
+    fiscal_year_end = Column(String(255))
+    industry_template_code = Column(String(255))
+    legal_name = Column(String(255))
+    legal_name_language_code = Column(String(255))
+    primary_exchange_id = Column(String(255))
+    primary_share_class_id = Column(String(255))
+    primary_symbol = Column(String(255))
+    short_name = Column(String(255))
+    standard_name = Column(String(255))
 
 
 class EarningsRatios(Base):
@@ -929,9 +929,9 @@ class EarningsReport(Base):
 class FinancialStatementFiling(Base):
     __tablename__ = 'financial_statement_filing'
     financial_statement_filing_id = Column(Integer, ForeignKey(Fundamentals.id), primary_key=True)
-    accession_number = Column(String)
+    accession_number = Column(String(255))
     file_date = Column(Date)
-    form_type = Column(String)
+    form_type = Column(String(255))
     period_ending_date = Column(Date)
 
 
@@ -997,19 +997,19 @@ class OperationRatios(Base):
 class ShareClassReference(Base):
     __tablename__ = 'share_class_reference'
     share_class_reference_id = Column(Integer, ForeignKey(Fundamentals.id), primary_key=True)
-    currency_id = Column(String)
+    currency_id = Column(String(255))
     depositary_receipt_ratio = Column(Numeric(16,5))
-    exchange_id = Column(String)
+    exchange_id = Column(String(255))
     investment_id = Column(Numeric(16,5))
     ipo_date = Column(Date)
     is_depositary_receipt = Column(Boolean)
     is_direct_invest = Column(Boolean)
     is_dividend_reinvest = Column(Boolean)
     is_primary_share = Column(Boolean)
-    security_type = Column(String)
-    share_class_description = Column(String)
-    share_class_status = Column(String)
-    symbol = Column(String)
+    security_type = Column(String(255))
+    share_class_description = Column(String(255))
+    share_class_status = Column(String(255))
+    symbol = Column(String(255))
 
 
 class Valuation(Base):
