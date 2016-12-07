@@ -1,0 +1,102 @@
+Statement	Indicator	Title	Quantopian
+Balance Sheet	cashneq	Cash and Equivalents	balance_sheet.cash_and_cash_equivalents
+Balance Sheet	assetsc	Current Assets	balance_sheet.current_assets
+Balance Sheet	debtc	Debt Current	balance_sheet.current_debt
+Balance Sheet	liabilitiesc	Current Liabilities	balance_sheet.current_liabilities
+Balance Sheet	accoci	Accumulated Other Comprehensive Income	balance_sheet.gains_losses_not_affecting_retained_earnings
+Balance Sheet	intangibles	Goodwill and Intangible Assets	balance_sheet.goodwill_and_other_intangible_assets
+Balance Sheet	inventory	Inventory	balance_sheet.inventory
+Metrics	invcap	Invested Capital	balance_sheet.invested_capital
+Balance Sheet	debtnc	Debt Non-Current	balance_sheet.long_term_debt
+Balance Sheet	investmentsnc	Investments Non-Current	balance_sheet.long_term_investments
+Balance Sheet	ppnenet	Property, Plant & Equipment Net	balance_sheet.net_ppe
+Balance Sheet	deferredrev	Deferred Revenue	balance_sheet.non_current_deferred_revenue
+Balance Sheet	payables	Trade and Non-Trade Payables	balance_sheet.payables
+Balance Sheet	receivables	Trade and Non-Trade Receivables	balance_sheet.receivables
+Balance Sheet	retearn	Accumulated Retained Earnings (Deficit)	balance_sheet.retained_earnings
+Balance Sheet	equity	Shareholders Equity	balance_sheet.stockholders_equity
+Metrics	tangibles	Tangible Asset Value	balance_sheet.tangible_book_value
+Balance Sheet	taxassets	Tax Assets	balance_sheet.tax_assets_total
+Balance Sheet	assets	Total Assets	balance_sheet.total_assets
+Balance Sheet	debt	Total Debt	balance_sheet.total_debt
+Balance Sheet	debtusd	Total Debt (USD)	balance_sheet.total_debt
+Balance Sheet	investments	Investments	balance_sheet.total_investments
+Balance Sheet	liabilities	Total Liabilities	balance_sheet.total_liabilities
+Balance Sheet	assetsnc	Assets Non-Current	balance_sheet.total_non_current_assets
+Balance Sheet	liabilitiesnc	Liabilities Non-Current	balance_sheet.total_non_current_liabilities
+Balance Sheet	taxliabilities	Tax Liabilities	balance_sheet.total_tax_payable
+Metrics	workingcapital	Working Capital	balance_sheet.working_capital
+Cash Flow	capex	Capital Expenditure	cash_flow_statement.capital_expenditure
+Cash Flow	ncfdiv	Payment of Dividends & Other Cash Distributions   	cash_flow_statement.cash_dividends_paid
+Cash Flow	ncf	Net Cash Flow / Change in Cash & Cash Equivalents	cash_flow_statement.changes_in_cash
+Cash Flow	depamor	Depreciation, Amortization & Accretion	cash_flow_statement.depreciation_amortization_depletion
+Cash Flow	ncfx	Effect of Exchange Rate Changes on Cash 	cash_flow_statement.effect_of_exchange_rate_changes
+Cash Flow	ncff	Net Cash Flow from Financing	cash_flow_statement.financing_cash_flow
+Metrics	fcf	Free Cash Flow	cash_flow_statement.free_cash_flow
+Cash Flow	ncfi	Net Cash Flow from Investing	cash_flow_statement.investing_cash_flow
+Cash Flow	ncfcommon	Issuance (Purchase) of Equity Shares	cash_flow_statement.net_common_stock_issuance
+Cash Flow	ncfdebt	Issuance (Repayment) of Debt Securities 	cash_flow_statement.net_issuance_payments_of_debt
+Cash Flow	ncfo	Net Cash Flow from Operations	cash_flow_statement.operating_cash_flow
+Cash Flow	sbcomp	Share Based Compensation	cash_flow_statement.stock_based_compensation
+Ticker	Location		company_reference.country_id
+Ticker	Name		company_reference.legal_name
+Ticker	Exchange		company_reference.primary_exchange_id
+Income Statement	shareswa	Weighted Average Shares	earnings_ratios.basic_average_shares
+Income Statement	shareswadil	Weighted Average Shares Diluted	earnings_ratios.diluted_average_shares
+Income Statement	eps	Earnings per Basic Share	earnings_report.basic_eps
+Income Statement	epsdil	Earnings per Diluted Share	earnings_report.diluted_eps
+Income Statement	dps	Dividends per Basic Common Share	earnings_report.dividend_per_share
+Entity	datekey	Date Key	financial_statement_filing.file_date
+Entity	reportperiod	Report Period	financial_statement_filing.period_ending_date
+Entity	price	Share Price (Adjusted Close)	fundamentals.price
+Income Statement	cor	Cost of Revenue	income_statement.cost_of_revenue
+Income Statement	ebit	Earning Before Interest & Taxes (EBIT)	income_statement.ebit
+Metrics	ebitda	EBITDA	income_statement.ebitda
+Income Statement	gp	Gross Profit	income_statement.gross_profit
+Income Statement	intexp	Interest Expense	income_statement.interest_expense
+Income Statement	netinc	Net Income	income_statement.net_income
+Income Statement	netinccmn	Net Income Common Stock	income_statement.net_income_common_stockholders
+Income Statement	netincdis	Net Income from Discontinued Operations	income_statement.net_income_discontinuous_operations
+Income Statement	opex	Operating Expenses	income_statement.operating_expense
+Income Statement	opinc	Operating Income	income_statement.operating_income
+Income Statement	prefdivis	Preferred Dividends Income Statement Impact	income_statement.preferred_stock_dividends
+Metrics	ebt	Earnings before Tax	income_statement.pretax_income
+Income Statement	rnd	Research and Development Expense	income_statement.research_and_development
+Income Statement	sgna	Selling, General and Administrative Expense	income_statement.selling_general_and_administration
+Income Statement	taxexp	Income Tax Expense	income_statement.tax_provision
+Income Statement	revenue	Revenues	income_statement.total_revenue
+Metrics	currentratio	Current Ratio	operation_ratios.current_ratio
+Metrics	ebitdamargin	EBITDA Margin	operation_ratios.ebitda_margin
+Metrics	grossmargin	Gross Margin	operation_ratios.gross_margin
+Metrics	netmargin	Profit Margin	operation_ratios.net_margin
+Metrics	roa	Return on Average Assets	operation_ratios.roa
+Metrics	roe	Return on Average Equity	operation_ratios.roe
+Metrics	roic	Return on Invested Capital	operation_ratios.roic
+Metrics	de	Debt to Equity Ratio	operation_ratios.total_debt_equity_ratio
+Ticker	Currency		share_class_reference.currency_id
+Ticker	Is Foreign		share_class_reference.is_depositary_receipt
+Entity	ticker	Ticker	company_reference.primary_symbol
+Balance Sheet	investmentsc	Investments Current	balance_sheet.short_term_investments_held_to_maturity
+Metrics	bvps	Book Value per Share	valuation_ratios.book_value_per_share
+Metrics	divyield	Dividend Yield	valuation_ratios.dividend_yield
+Metrics	evebitda	Enterprise Value over EBITDA	valuation_ratios.ev_to_ebitda
+Metrics	fcfps	Free Cash Flow per Share	valuation_ratios.fcf_per_share
+Metrics	payoutratio	Payout Ratio	valuation_ratios.payout_ratio
+Metrics	pb	Price to Book Value	valuation_ratios.pb_ratio
+Metrics	pe1	Price to Earnings Ratio	valuation_ratios.pe_ratio
+Metrics	ps1	Price to Sales Ratio	valuation_ratios.ps_ratio
+Metrics	sps	Sales per Share	valuation_ratios.sales_per_share
+Metrics	tbvps	Tangible Assets Book Value per Share	valuation_ratios.tangible_book_value_per_share
+Metrics	ev	Enterprise Value	valuation.enterprise_value
+Metrics	marketcap	Market Capitalization	valuation.market_cap
+Entity	sharesbas	Shares (Basic)	valuation.shares_outstanding
+Ticker	Industry		asset_classification.morningstar_industry_code
+Ticker	Sector		asset_classification.morningstar_sector_code
+Ticker	SIC		asset_classification.sic
+			
+Ticker	Delisted From		NA
+Balance Sheet	deposits	Deposit Liabilities	NA
+Cash Flow	ncfbus	Net Cash Flow - Business Acquisitions and Disposals	NA
+Cash Flow	ncfinv	Net Cash Flow - Investment Acquisitions and Disposals	NA
+Income Statement	consolinc	Consolidated Income	NA
+Income Statement	netincnci	Net Income to Non-Controlling Interests	NA
