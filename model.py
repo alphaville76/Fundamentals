@@ -85,6 +85,7 @@ class AssetClassification(Base):
     style_box = Column(Float)
     style_score = Column(Float)
     value_score = Column(Float)
+    last_updated = Column(Date)
 
 
 class BalanceSheet(Base):
@@ -424,6 +425,7 @@ class BalanceSheet(Base):
     water_production = Column(Float)
     work_in_process = Column(Float)
     working_capital = Column(Float)
+    last_updated = Column(Date)
 
 
 class IncomeStatement(Base):
@@ -662,6 +664,7 @@ class IncomeStatement(Base):
     work_performedby_entityand_capitalized = Column(Float)
     write_down = Column(Float)
     write_off = Column(Float)
+    last_updated = Column(Date)
 
 
 class CashFlowStatement(Base):
@@ -867,6 +870,7 @@ class CashFlowStatement(Base):
     total_adjustmentsfor_non_cash_items = Column(Float)
     unrealized_gain_loss_on_investment_securities = Column(Float)
     unrealized_gains_losses_on_derivatives = Column(Float)
+    last_updated = Column(Date)
 
 
 class CompanyReference(Base):
@@ -885,6 +889,7 @@ class CompanyReference(Base):
     primary_symbol = Column(String(255))
     short_name = Column(String(255))
     standard_name = Column(String(255))
+    last_updated = Column(Date)
 
 
 class EarningsRatios(Base):
@@ -894,6 +899,7 @@ class EarningsRatios(Base):
     diluted_eps_growth = Column(Float)
     dps_growth = Column(Float)
     equity_per_share_growth = Column(Float)
+    last_updated = Column(Date)
 
 
 class EarningsReport(Base):
@@ -924,6 +930,7 @@ class EarningsReport(Base):
     period_ending_date = Column(Date)
     tax_loss_carryforward_basic_eps = Column(Float)
     tax_loss_carryforward_diluted_eps = Column(Float)
+    last_updated = Column(Date)
 
 
 class FinancialStatementFiling(Base):
@@ -933,6 +940,7 @@ class FinancialStatementFiling(Base):
     file_date = Column(Date)
     form_type = Column(String(255))
     period_ending_date = Column(Date)
+    last_updated = Column(Date)
 
 
 class GeneralProfile(Base):
@@ -952,6 +960,7 @@ class GeneralProfile(Base):
     headquarter_province = Column(Float)
     short_description = Column(Float)
     total_employee_number = Column(Float)
+    last_updated = Column(Date)
 
 
 class OperationRatios(Base):
@@ -992,6 +1001,7 @@ class OperationRatios(Base):
     sales_per_employee = Column(Float)
     tax_rate = Column(Float)
     total_debt_equity_ratio = Column(Float)
+    last_updated = Column(Date)
 
 
 class ShareClassReference(Base):
@@ -1010,6 +1020,7 @@ class ShareClassReference(Base):
     share_class_description = Column(String(255))
     share_class_status = Column(String(255))
     symbol = Column(String(255))
+    last_updated = Column(Date)
 
 
 class Valuation(Base):
@@ -1019,6 +1030,7 @@ class Valuation(Base):
     market_cap = Column(Float)
     share_class_level_shares_outstanding = Column(Float)
     shares_outstanding = Column(Float)
+    last_updated = Column(Date)
 
 
 class ValuationRatios(Base):
@@ -1057,6 +1069,7 @@ class ValuationRatios(Base):
     working_capital_per_share = Column(Float)
     working_capital_per_share3_yr_avg = Column(Float)
     working_capital_per_share5_yr_avg = Column(Float)
+    last_updated = Column(Date)
 
 fundamentals = aliased(Fundamentals)
 fundamentals.balance_sheet = aliased(BalanceSheet)

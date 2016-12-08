@@ -1,6 +1,6 @@
 import csv
 import dao
-from datetime import datetime
+import datetime
 from model import *
 from utils import get_start, update_progress, to_float, delete_progress_file
 from click import progressbar
@@ -30,9 +30,26 @@ def map_row_to_fundamentals(s, row):
     f.valuation_ratios = ValuationRatios()
     f.valuation = Valuation()
     f.asset_classification = AssetClassification()
+    f.general_profile = GeneralProfile()
+
     f.symbol = current_ticker
     f.price = to_float(row, 'price')
-    f.date = datetime.strptime(row['datekey'], "%Y-%m-%d").date()
+    f.date = datetime.datetime.strptime(row['datekey'], "%Y-%m-%d").date()
+
+    f.balance_sheet.last_updated = datetime.date.today()
+    f.income_statement.last_updated = datetime.date.today()
+    f.cash_flow_statement.last_updated = datetime.date.today()
+    f.company_reference.last_updated = datetime.date.today()
+    f.earnings_ratios.last_updated = datetime.date.today()
+    f.earnings_report.last_updated = datetime.date.today()
+    f.financial_statement_filing.last_updated = datetime.date.today()
+    f.operation_ratios.last_updated = datetime.date.today()
+    f.share_class_reference.last_updated = datetime.date.today()
+    f.valuation_ratios.last_updated = datetime.date.today()
+    f.valuation.last_updated = datetime.date.today()
+    f.asset_classification.last_updated = datetime.date.today()
+    f.general_profile.last_updated = datetime.date.today()
+
     e = s.query(Equity).filter(Equity.ticker == current_ticker).first()
     if e is None:
         rt = s.query(RelatedTicker).filter(RelatedTicker.ticker == current_ticker).first()
@@ -96,8 +113,8 @@ def map_row_to_fundamentals(s, row):
     f.earnings_report.basic_eps = to_float(row, 'eps')
     f.earnings_report.diluted_eps = to_float(row, 'epsdil')
     f.earnings_report.dividend_per_share = to_float(row, 'dps')
-    f.financial_statement_filing.file_date = datetime.strptime(row['datekey'], "%Y-%m-%d").date()
-    f.financial_statement_filing.period_ending_date = datetime.strptime(row['reportperiod'], "%Y-%m-%d").date()
+    f.financial_statement_filing.file_date = datetime.datetime.strptime(row['datekey'], "%Y-%m-%d").date()
+    f.financial_statement_filing.period_ending_date = datetime.datetime.strptime(row['reportperiod'], "%Y-%m-%d").date()
     f.income_statement.cost_of_revenue = to_float(row, 'cor')
     f.income_statement.ebit = to_float(row, 'ebit')
     f.income_statement.ebitda = to_float(row, 'ebitda')

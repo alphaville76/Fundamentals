@@ -1,11 +1,11 @@
 from contextlib import contextmanager
 import csv
-from datetime import datetime
+import datetime
 from model import *
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+import dateutil.relativedelta
 from model import Base, fundamentals, Equity
 
 
@@ -40,10 +40,14 @@ def query(*args):
             *args)
     return q
 
-
-def get_fundamentals(query, date = datetime.today()):
+def get_fundamentals(query, date = datetime.date.today()):
     with db_session() as s:
-        q = query.filter(fundamentals.date == date)
+        dmin = date - dateutil.relativedelta.relativedelta(months=3)
+        dmax = date - dateutil.relativedelta.relativedelta(days=1)
+        q = query.filter(fundamentals.date >= dmin).filter(fundamentals.date <= dmax)
+        print q
+        print dmin
+        print dmax
         df = pd.read_sql(q.statement, s.bind)
         df.index = df['symbol']
         del df['symbol']
