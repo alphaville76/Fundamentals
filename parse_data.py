@@ -2,7 +2,7 @@ import csv
 import dao
 from datetime import datetime
 from model import *
-from utils import get_start, update_progress, to_float
+from utils import get_start, update_progress, to_float, delete_progress_file
 from click import progressbar
 import logging as log
 
@@ -174,7 +174,7 @@ with open('resource/SHARADAR_SF1_all.csv', 'rb') as csvfile:
 
             with dao.db_session() as s:
                 f = map_row_to_fundamentals(s, row)
-
                 s.add(f)
-
                 update_progress(progress)
+
+    delete_progress_file()

@@ -4,7 +4,7 @@ import os
 def get_start():
     try:
         with open('resource/progress.txt', 'r') as progress_file:
-            return int(progress_file.read())
+            return int(progress_file.read()) - 1
     except IOError:
         print("progress.txt doesn't exists")
 
@@ -28,5 +28,5 @@ def update_progress(progress):
     with open('resource/progress.txt', 'w') as progress_file:
         progress_file.write(str(progress.pos))
 
-    if progress.pos == progress.length:
-        os.remove('resource/progress.txt')
+def delete_progress_file():
+    os.remove('resource/progress.txt')
