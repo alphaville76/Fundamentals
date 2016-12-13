@@ -45,9 +45,6 @@ def get_fundamentals(query, date = datetime.date.today()):
         dmin = date - dateutil.relativedelta.relativedelta(months=3)
         dmax = date - dateutil.relativedelta.relativedelta(days=1)
         q = query.filter(fundamentals.date >= dmin).filter(fundamentals.date <= dmax)
-        print q
-        print dmin
-        print dmax
         df = pd.read_sql(q.statement, s.bind)
         df.index = df['symbol']
         del df['symbol']
