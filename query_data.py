@@ -1,5 +1,5 @@
-from model import fundamentals, Equity
-from dao import get_fundamentals, query
+from core.dao import get_fundamentals, query
+from core.model import fundamentals
 
 df = get_fundamentals(
     query(fundamentals.balance_sheet.total_assets, fundamentals.income_statement.ebit)

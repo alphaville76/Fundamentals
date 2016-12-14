@@ -1,10 +1,12 @@
 import csv
-import dao
 import datetime
-from model import *
-from utils import get_start, update_progress, to_float, delete_progress_file
-from click import progressbar
 import logging as log
+
+from click import progressbar
+
+from core import dao
+from core.model import *
+from core.utils import get_start, update_progress, to_float, delete_progress_file
 
 log.basicConfig(format='%(asctime)s %(message)s', level=log.DEBUG)
 
@@ -65,8 +67,8 @@ def map_row_to_fundamentals(s, row):
     f.share_class_reference.currency_id = e.currency
     f.share_class_reference.is_depositary_receipt = e.is_foreign
     f.share_class_reference.symbol = current_ticker
-    f.asset_classification.morningstar_industry_code = e.industry
-    f.asset_classification.morningstar_sector_code = e.sector
+    f.asset_classification.morningstar_industry_code = e.industry.strip()
+    f.asset_classification.morningstar_sector_code = e.sector.strip()
     f.asset_classification.sic = e.sic
     f.balance_sheet.current_assets = to_float(row, 'assetsc')
     f.balance_sheet.current_debt = to_float(row, 'debtc')
